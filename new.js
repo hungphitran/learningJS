@@ -1,20 +1,11 @@
-function run(datas){
-	var a = 12;
-	
-	var b = "javascript";
+var arr=['a','b','c','a','b','c'];
 
-	var c = true;
-
-	var d = ['Apple', 'Banana'];
-
-	var e = {type:"Fiat", model:"500", color:"white"};
-
-	var f = function() {
-		console.log("javascript");
-	};
-
-	var g;
-	
-	console.log(typeof a+'\n'+typeof b+'\n'+typeof c+'\n'+typeof d+'\n'+typeof e+'\n'+typeof f+'\n'+typeof g);
+var a=[];
+for(var c of arr){
+	if(a.indexOf(c)!==-1) continue;
+	else a.push(c)
 }
-run();
+console.log(a);
+
+var b=new Set(arr)
+console.log([...b]);
