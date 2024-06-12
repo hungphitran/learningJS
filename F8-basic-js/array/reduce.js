@@ -26,7 +26,10 @@ var courses=[
     }
 ];
 
-var totalCoin=courses.reduce(function(sum,course,index){
+function getMoney(sum,course,index){
     return sum+course.coin;
-},0);
+}
+
+var totalCoin=courses.reduce(getMoney,0);
 console.log(totalCoin);
+ 

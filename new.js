@@ -1,11 +1,16 @@
-var arr=['a','b','c','a','b','c'];
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSum = function(nums, target) {
+    for(var key in nums){
+        var f=target-nums[key];
+        var a=nums.indexOf(f,Number(key)+1);
+        if(a!=-1){
+            return [Number(key),a];
+        }
+    }
+};
 
-var a=[];
-for(var c of arr){
-	if(a.indexOf(c)!==-1) continue;
-	else a.push(c)
-}
-console.log(a);
-
-var b=new Set(arr)
-console.log([...b]);
+console.log(twoSum([3,2,4],6));
