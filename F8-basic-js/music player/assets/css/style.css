@@ -1,0 +1,60 @@
+/* all */
+html{
+    background-color:cadetblue;
+    text-align: center;
+}
+.header{
+    color: pink;
+    font-size: 20;
+    background-color:darkslateblue;
+    padding:20px;
+}
+/* container */
+.container{
+    position:fixed;
+    font-size: 150%;
+    width: 100%;
+}
+/* buttons style */
+.ti-control-pause{
+    background-color: greenyellow;
+}
+.ti-control-play{
+    background-color: greenyellow;
+}
+.container i{
+    padding: 0.5%;
+    border-radius: 50%;
+    font-size: 100%;
+}
+.container i:hover{
+    background-color: aliceblue;
+}
+.description p{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.description h1{
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+/* display disc */
+.disc{
+    width: 25%;
+    height: 25%;
+    border-radius: 50%;
+    text-align: center;
+    transform: rotate(0deg);
+}
+/* process bar */
+.bar{
+    margin-left: 25%;
+    display: block;
+    width: 50%;
+}
+
+/* naviagtion with button */
+.navigations{
+    padding: 10px
+}
+

@@ -1,0 +1,35 @@
+.tags{
+    margin-top: 50px;
+
+}
+.tag{
+    font-size: 20px;
+    color: pink;
+    display: inline;
+    margin-top: 40px;
+    padding: 20px;
+    margin-top: 100px;
+    border: 0px;
+    border-bottom: 5px;
+    border-style:solid;
+    border-color: white;
+}
+
+.tag:hover{
+    background-color:aliceblue;
+    border-color: aliceblue;
+}
+
+.tag.active{
+    color: violet;
+    border-color: violet;
+}
+
+.content{
+    display: none;
+    margin-top: 40px;
+    font-size: 40px;
+}
+.content.active{
+    display: block;
+}
