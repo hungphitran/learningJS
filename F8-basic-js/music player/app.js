@@ -3,13 +3,10 @@ const play_but=document.querySelector('.ti-control-play');
 const progress_bar=document.querySelector('.bar');
 
 
-progress_bar.max=360;
-
-
 // setting for progress bar
 setInterval(function(){
-    if(play_but.className=='ti-control-pause') progress_bar.value++;
-    if(progress_bar.value>=progress_bar.max) progress_bar.value=0;
+    if(Number.parseInt(progress_bar.value)>=Number.parseInt(progress_bar.max)) progress_bar.value=0;
+    else if(play_but.className=='ti-control-pause') progress_bar.value=Number.parseInt(progress_bar.value)+1;
 },1000)
 
 // option for play and pause
@@ -38,3 +35,32 @@ setInterval(function(){
     disc.style.transform = `rotate(${cnt}deg)`;
 
 },10)
+
+
+const app={
+    songs:[
+        {
+            "name":"1000 anh mat",
+            "singer":"shiki"
+        },
+        {
+            "name":"no way back",
+            "singer":"bwine & lewuyne"
+        }
+    ],
+    render: function(){
+        var htmls=this.songs.map(function(song){
+            return `<div>
+                <h1>${song.name}</h1>
+                <p>
+                    ${song.singer}
+                </p>
+            </div>`
+        })
+        document.querySelector('.playlist').innerHTML=htmls.join('');
+    },
+    start: function(){
+        this.render();
+    }
+}
+app.start();

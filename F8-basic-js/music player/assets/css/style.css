@@ -2,18 +2,18 @@
 html{
     background-color:cadetblue;
     text-align: center;
-}
-.header{
-    color: pink;
-    font-size: 20;
-    background-color:darkslateblue;
-    padding:20px;
+    display:table-column;
 }
 /* container */
 .container{
-    position:fixed;
-    font-size: 150%;
-    width: 100%;
+
+    position: fixed;
+    left: 33%;
+
+    background-color: white;
+    font-size: 100%;
+    border-radius: 2%;
+    width: 33%;
 }
 /* buttons style */
 .ti-control-pause{
@@ -25,7 +25,7 @@ html{
 .container i{
     padding: 0.5%;
     border-radius: 50%;
-    font-size: 100%;
+    font-size: 150%;
 }
 .container i:hover{
     background-color: aliceblue;
@@ -40,14 +40,15 @@ html{
 }
 /* display disc */
 .disc{
-    width: 25%;
-    height: 25%;
+    width: 50%;
+    height: 50%;
     border-radius: 50%;
     text-align: center;
     transform: rotate(0deg);
 }
 /* process bar */
 .bar{
+    margin-top: 10%;
     margin-left: 25%;
     display: block;
     width: 50%;
@@ -56,5 +57,14 @@ html{
 /* naviagtion with button */
 .navigations{
     padding: 10px
+}
+
+.playlist{
+    font-size: 10px;
+    width: 33%;
+    position: absolute;
+    left: 33%;
+    top: 43%;
+    background-color: white;
 }
 
