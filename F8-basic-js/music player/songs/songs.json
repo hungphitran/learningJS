@@ -1,0 +1,17 @@
+[
+    {
+        "name":"nhat-fine",
+        "singer":"greyD",
+        "path":"./songs/nhatfine.mp3"
+    },
+    {
+        "name":"va the la het",
+        "singer":"chillies",
+        "path":"./songs/vathelahet.mp3"
+    },
+    {
+        "name":"who",
+        "singer":"chillies",
+        "path":"./songs/who.mp3"
+    }
+]
