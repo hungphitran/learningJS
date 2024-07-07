@@ -1,12 +1,18 @@
 /* all */
 html{
+    position:absolute;
     background-color:cadetblue;
     text-align: center;
     display:table-column;
 }
 
+.ti-reload.active:hover{
+    background-color: aqua;
+}
 
-
+.ti-reload.active{
+    background-color: aqua;
+}
 
 /* container */
 .container{
@@ -26,6 +32,7 @@ html{
 .ti-control-play{
     background-color: greenyellow;
 }
+
 .container i{
     padding: 0.5%;
     border-radius: 50%;
@@ -64,11 +71,9 @@ html{
 }
 
 .playlist{
-    font-size: 10px;
-    width: 33%;
-    position: absolute;
-    left: 33%;
-    top: 43%;
     background-color: white;
+    height: 100px;
+    margin-top:10%;
+    padding-top: 33%;
 }
 

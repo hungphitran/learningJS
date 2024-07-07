@@ -6,12 +6,38 @@ const audio=document.querySelector(".audio");
 const description=document.querySelector(".description");
 const backward_but=document.querySelector(".ti-control-skip-backward");
 const forward_but=document.querySelector(".ti-control-skip-forward");
+const reload_but=document.querySelector(".ti-reload");
+const playlist=document.querySelector(".playlist");
+console.log(playlist);
+playlist.innerHTML=`
+    <h1>Playlist</h1>
+    <div>
+        <h1>Song 1</h1>
+        <p>Singer 1</p>
+    </div>
+    <div>
+        <h1>Song 2</h1>
+        <p>Singer 2</p>
+    </div>
+    <div>
+        <h1>Song 3</h1>
+        <p>Singer 3</p>
+    </div>
+`
 var songs=[];
 var cur_index=0;
 
 
+reload_but.onclick=function(){
+    if(reload_but.className=='ti-reload'){
+        reload_but.className='ti-reload active';
+    }
+    else{
+        reload_but.className='ti-reload';
+    }
+}
 
-console.log(progress_bar)
+
 fetch("./songs/songs.json")
     .then(function(res){
         return res.json();
@@ -28,15 +54,35 @@ fetch("./songs/songs.json")
 
 // setting for progress bar
 setInterval(function(){
-    if(Number.parseInt(progress_bar.value)>=Number.parseInt(progress_bar.max)) progress_bar.value=0;
-    else if(play_but.className=='ti-control-pause') progress_bar.value=Number.parseInt(progress_bar.value)+1;
+    progress_bar.max=audio.duration;
+    //handle when progress bar reach the end
+    if(Number.parseInt(progress_bar.value)>=Number.parseInt(progress_bar.max)) {
+        progress_bar.value=0;
+        if(reload_but.className=='ti-reload') cur_index++;
+        if(cur_index>=songs.length) cur_index=0;
+        audio.src=songs[cur_index].path;
+        description.innerHTML=`
+            <h1>${songs[cur_index].name}</h1>
+            <p>${songs[cur_index].singer}</p>
+        `;
+        audio.load();
+        if(play_but.className=='ti-control-pause'){
+            audio.play();
+        }
+        else {
+            audio.pause();
+        }
+    }
+
+    if(play_but.className=='ti-control-pause') progress_bar.value=`${Number.parseInt(progress_bar.value)+1}`;
+    else progress_bar.value=`${Number.parseInt(progress_bar.value)}`;
 },1000)
 
 // option for play and pause
 play_but.onclick=function(){
+    progress_bar.max=audio.duration;
     let tmp=play_but.className;
     if(tmp=='ti-control-play'){
-        progress_bar.max=audio.duration;
         audio.play();
         play_but.className='ti-control-pause';
     }
@@ -51,11 +97,14 @@ backward_but.onclick=function(){
     progress_bar.value=0;
     if(cur_index<0) cur_index=songs.length-1;
     audio.src=songs[cur_index].path;
+
     description.innerHTML=`
         <h1>${songs[cur_index].name}</h1>
         <p>${songs[cur_index].singer}</p>
     `
     audio.load();
+    progress_bar.max=audio.duration;
+
     if(play_but.className=='ti-control-pause'){
         audio.play();
     }
@@ -63,7 +112,7 @@ backward_but.onclick=function(){
 
 forward_but.onclick=function(){
     cur_index++;
-    progress_bar.value=0;
+    progress_bar.value='0';
     if(cur_index>=songs.length) cur_index=0;
     audio.src=songs[cur_index].path;
     description.innerHTML=`
@@ -71,6 +120,8 @@ forward_but.onclick=function(){
         <p>${songs[cur_index].singer}</p>
     `
     audio.load();
+    progress_bar.max=audio.duration;
+
     if(play_but.className=='ti-control-pause'){
         audio.play();
     }
